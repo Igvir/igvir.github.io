@@ -1,6 +1,6 @@
 # igvir.github.io
-My personal landing page
----
+## My personal landing page
+
 Design based on Future Imperfect by HTML5 UP
 html5up.net | @ajlkn
 under the CCA 3.0 license (html5up.net/license)
@@ -16,8 +16,9 @@ aj@lkn.io | @ajlkn
 
 Credits:
 
-	Demo Images:
-		Unsplash (unsplash.com)
+	Images:
+		Banner Photo by me.
+  
 
 	Icons:
 		Font Awesome (fontawesome.io)
