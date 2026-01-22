@@ -1,20 +1,84 @@
 /* Custom Styles for Igvir Ramirez Portfolio */
 
+/* Dark Mode Variables */
+:root {
+    --bg-color: #fff;
+    --text-color: #888;
+    --heading-color: #777;
+    --link-color: #4acaa8;
+    --border-color: #e4e4e4;
+    --code-bg: #555;
+    --header-bg: #4acaa8;
+    --lang-switcher-bg: rgba(255, 255, 255, 0.95);
+    --lang-switcher-text: #333;
+    --lang-switcher-border: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #b8b8b8;
+    --heading-color: #d0d0d0;
+    --link-color: #5fd4b0;
+    --border-color: #333;
+    --code-bg: #2a2a2a;
+    --header-bg: #222;
+    --lang-switcher-bg: rgba(34, 34, 34, 0.95);
+    --lang-switcher-text: #d0d0d0;
+    --lang-switcher-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 10000;
+    background: var(--bg-color);
+    border: 2px solid var(--border-color);
+    padding: 0.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    border-color: var(--link-color);
+}
+
+.theme-toggle:focus {
+    outline: 3px solid var(--link-color);
+    outline-offset: 2px;
+}
+
+.theme-toggle svg {
+    width: 1.2em;
+    height: 1.2em;
+    fill: var(--heading-color);
+}
+
 /* Language Switcher */
 .language-switcher {
     position: fixed;
     top: 1em;
     right: 1em;
     z-index: 10000;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--lang-switcher-bg);
     padding: 0.5em 1em;
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
+    border: 1px solid var(--lang-switcher-border);
 }
 
 .lang-link {
-    color: #333;
+    color: var(--lang-switcher-text);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9em;
@@ -23,16 +87,16 @@
 }
 
 .lang-link:hover {
-    color: #49bf9d;
+    color: var(--link-color);
 }
 
 .lang-link.active {
-    color: #49bf9d;
-    border-bottom: 2px solid #49bf9d;
+    color: var(--link-color);
+    border-bottom: 2px solid var(--link-color);
 }
 
 .lang-separator {
-    color: #ccc;
+    color: var(--border-color);
     margin: 0 0.3em;
 }
 
@@ -59,11 +123,41 @@
 
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --bg-color: #1a1a1a;
-        --text-color: #e0e0e0;
-        --link-color: #4a9eff;
+        --text-color: #b8b8b8;
+        --heading-color: #d0d0d0;
+        --link-color: #5fd4b0;
+        --border-color: #333;
+        --code-bg: #2a2a2a;
+        --header-bg: #222;
     }
+}
+
+/* Apply dark mode colors */
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+}
+
+a:hover {
+    color: var(--link-color) !important;
+}
+
+#header {
+    background: var(--header-bg);
+}
+
+blockquote {
+    border-left-color: var(--border-color);
+}
+
+code {
+    background: var(--code-bg);
 }
 
 /* Timeline Styles for Experience Section */

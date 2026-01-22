@@ -47,6 +47,9 @@
     # Referrer Policy
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     
+    # Strict Transport Security (HSTS)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
     # Permissions Policy
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
     
@@ -54,12 +57,12 @@
     Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
 </IfModule>
 
-# Force HTTPS (uncomment if you have SSL)
-# <IfModule mod_rewrite.c>
-#     RewriteEngine On
-#     RewriteCond %{HTTPS} off
-#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# </IfModule>
+# Force HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
 
 # Remove www (or add www, choose one)
 # <IfModule mod_rewrite.c>
@@ -80,3 +83,26 @@ Options -Indexes
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+# Block access to sensitive files
+<FilesMatch "\.(md|ps1|json|yml|yaml)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to reports directory
+<DirectoryMatch "^.*/reports">
+    Order allow,deny
+    Deny from all
+</DirectoryMatch>
+
+# Allow specific files
+<Files "site.webmanifest">
+    Order allow,deny
+    Allow from all
+</Files>
+
+<Files "package.json">
+    Order allow,deny
+    Deny from all
+</Files>

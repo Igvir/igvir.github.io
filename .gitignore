@@ -1,0 +1,25 @@
+# Local private files (development only)
+local-private/
+
+# Development files
+node_modules/
+package-lock.json
+*.log
+npm-debug.log*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
