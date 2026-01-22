@@ -9,6 +9,8 @@
     --border-color: #e4e4e4;
     --code-bg: #555;
     --header-bg: #f5f5f5;
+    --lang-switcher-bg: rgba(73, 191, 157, 0.1);
+    --lang-switcher-text: #333;
 }
 
 [data-theme="dark"] {
@@ -19,6 +21,8 @@
     --border-color: #333;
     --code-bg: #2a2a2a;
     --header-bg: #222;
+    --lang-switcher-bg: #1a1a1a;
+    --lang-switcher-text: #d0d0d0;
 }
 
 /* Dark Mode Toggle Button */
@@ -63,7 +67,7 @@
     top: 1em;
     right: 1em;
     z-index: 10000;
-    background: var(--bg-color);
+    background: var(--lang-switcher-bg);
     padding: 0.5em 1em;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -72,7 +76,7 @@
 }
 
 .lang-link {
-    color: var(--heading-color);
+    color: var(--lang-switcher-text);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9em;
