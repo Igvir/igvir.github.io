@@ -77,8 +77,9 @@ python -m http.server 8000
 ## 📚 Documentation
 
 ### Getting Started
-- **[QUICK_START.md](QUICK_START.md)** - Quick start guide
+- **[reports/QUICK_START.md](reports/QUICK_START.md)** - Quick start guide
 - **[reports/EXECUTIVE_SUMMARY.md](reports/EXECUTIVE_SUMMARY.md)** - Project overview
+- **[WEBP_CONVERSION_GUIDE.md](WEBP_CONVERSION_GUIDE.md)** - WebP conversion guide
 
 ### Technical Documentation
 - **[reports/TECHNICAL_IMPROVEMENTS_SUMMARY.md](reports/TECHNICAL_IMPROVEMENTS_SUMMARY.md)** - What was implemented
@@ -91,14 +92,15 @@ python -m http.server 8000
 - **[reports/SECURITY_FIXES.md](reports/SECURITY_FIXES.md)** - Security implementation guide
 
 ### Implementation Guides
-- **[webp-helper.md](webp-helper.md)** - WebP image conversion
+- **[WEBP_CONVERSION_GUIDE.md](WEBP_CONVERSION_GUIDE.md)** - Complete WebP conversion guide
+- **[webp-helper.md](webp-helper.md)** - WebP quick reference
 - **[jquery-to-vanilla.md](jquery-to-vanilla.md)** - jQuery migration
 - **[reports/DEPLOYMENT_CHECKLIST.md](reports/DEPLOYMENT_CHECKLIST.md)** - Deployment steps
 
 ### Internationalization
 - **[INTERNATIONALIZATION.md](INTERNATIONALIZATION.md)** - i18n implementation
 - **[I18N_SUMMARY.md](I18N_SUMMARY.md)** - i18n summary
-- **[QUICK_START_I18N.md](QUICK_START_I18N.md)** - i18n quick start
+- **[reports/QUICK_START_I18N.md](reports/QUICK_START_I18N.md)** - i18n quick start
 
 ### Project History
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history
@@ -295,7 +297,8 @@ Design template by [HTML5 UP](https://html5up.net) (CCA 3.0 License)
 
 - [View Live Site](https://www.igvir.com)
 - [Spanish Version](https://www.igvir.com/es/)
-- [Quick Start Guide](QUICK_START.md)
+- [Quick Start Guide](reports/QUICK_START.md)
+- [WebP Conversion Guide](WEBP_CONVERSION_GUIDE.md)
 - [Technical Summary](reports/TECHNICAL_IMPROVEMENTS_SUMMARY.md)
 - [Security Summary](reports/SECURITY_SUMMARY.md)
 - [Deployment Checklist](reports/DEPLOYMENT_CHECKLIST.md)
