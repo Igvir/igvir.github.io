@@ -3,7 +3,7 @@
  * Provides offline functionality and caching
  */
 
-const CACHE_VERSION = 'v1.0.0';
+const CACHE_VERSION = 'v1.1.0';
 const CACHE_NAME = `igvir-portfolio-${CACHE_VERSION}`;
 
 // Assets to cache on install
@@ -15,13 +15,9 @@ const STATIC_ASSETS = [
   '/assets/css/main.css',
   '/assets/css/custom.css',
   '/assets/css/fontawesome-all.min.css',
-  '/assets/js/jquery.min.js',
-  '/assets/js/jquery.scrollex.min.js',
-  '/assets/js/jquery.scrolly.min.js',
   '/assets/js/browser.min.js',
   '/assets/js/breakpoints.min.js',
-  '/assets/js/util.js',
-  '/assets/js/main.js',
+  '/assets/js/main-vanilla.js',
   '/assets/js/custom.js',
   '/images/avatar.jpg',
   '/images/banner5-white-small.png',

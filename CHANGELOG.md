@@ -29,16 +29,10 @@ All notable changes to this project will be documented in this file.
 - Dark mode support for both EN and ES versions
 
 #### Developer Tools & Scripts
-- `sw.js` - Service Worker implementation
-- `convert-to-webp.ps1` - PowerShell script for WebP conversion
-- `extract-critical-css.js` - Node.js script for critical CSS extraction
-- `package.json` - NPM configuration for build tools
-- `webp-helper.md` - WebP implementation guide
-- `jquery-to-vanilla.md` - jQuery migration guide
-- `TECHNICAL_IMPROVEMENTS_SUMMARY.md` - Comprehensive improvements documentation
-- `TECHNICAL_IMPROVEMENTS_README.md` - Quick start guide
-- `DEPLOYMENT_CHECKLIST.md` - Deployment verification steps
-- `QUICK_START.md` - User-friendly quick start guide
+- Service Worker implementation for offline functionality
+- Enhanced security headers configuration
+- Resource optimization and caching strategies
+- Dark mode implementation with theme persistence
 
 #### CSS Enhancements
 - CSS custom properties for theme colors
