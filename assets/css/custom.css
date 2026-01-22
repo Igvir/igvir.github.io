@@ -63,15 +63,16 @@
     top: 1em;
     right: 1em;
     z-index: 10000;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--bg-color);
     padding: 0.5em 1em;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
 }
 
 .lang-link {
-    color: #333;
+    color: var(--heading-color);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9em;
@@ -80,16 +81,16 @@
 }
 
 .lang-link:hover {
-    color: #49bf9d;
+    color: var(--link-color);
 }
 
 .lang-link.active {
-    color: #49bf9d;
-    border-bottom: 2px solid #49bf9d;
+    color: var(--link-color);
+    border-bottom: 2px solid var(--link-color);
 }
 
 .lang-separator {
-    color: #ccc;
+    color: var(--border-color);
     margin: 0 0.3em;
 }
 
@@ -151,11 +152,6 @@ blockquote {
 
 code {
     background: var(--code-bg);
-}
-
-.language-switcher {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
 }
 
 /* Timeline Styles for Experience Section */
