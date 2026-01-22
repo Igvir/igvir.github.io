@@ -29,9 +29,10 @@ Complete guide to all documentation files in this project.
 
 | Document | Description | Audience |
 |----------|-------------|----------|
-| [QUICK_START.md](QUICK_START.md) | Quick start guide | New users |
-| [QUICK_START_I18N.md](QUICK_START_I18N.md) | i18n quick start | Developers |
+| [reports/QUICK_START.md](reports/QUICK_START.md) | Quick start guide | New users |
+| [reports/QUICK_START_I18N.md](reports/QUICK_START_I18N.md) | i18n quick start | Developers |
 | [DEPLOYMENT.md](DEPLOYMENT.md) | Deployment guide | DevOps |
+| [WEBP_CONVERSION_GUIDE.md](WEBP_CONVERSION_GUIDE.md) | WebP conversion guide | Developers |
 
 ### 🌍 Internationalization
 
@@ -39,13 +40,14 @@ Complete guide to all documentation files in this project.
 |----------|-------------|----------|
 | [INTERNATIONALIZATION.md](INTERNATIONALIZATION.md) | i18n implementation | Developers |
 | [I18N_SUMMARY.md](I18N_SUMMARY.md) | i18n summary | Everyone |
-| [QUICK_START_I18N.md](QUICK_START_I18N.md) | i18n quick start | Developers |
+| [reports/QUICK_START_I18N.md](reports/QUICK_START_I18N.md) | i18n quick start | Developers |
 
 ### 🔧 Implementation Guides
 
 | Document | Description | Audience |
 |----------|-------------|----------|
-| [webp-helper.md](webp-helper.md) | WebP conversion guide | Developers |
+| [WEBP_CONVERSION_GUIDE.md](WEBP_CONVERSION_GUIDE.md) | Complete WebP guide | Developers |
+| [webp-helper.md](webp-helper.md) | WebP quick reference | Developers |
 | [jquery-to-vanilla.md](jquery-to-vanilla.md) | jQuery migration guide | Developers |
 
 ---
