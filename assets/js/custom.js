@@ -6,6 +6,57 @@
 (function() {
     'use strict';
 
+    // Dark Mode Toggle
+    function initDarkMode() {
+        const themeToggle = document.querySelector('.theme-toggle');
+        const sunIcon = document.querySelector('.sun-icon');
+        const moonIcon = document.querySelector('.moon-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            updateIcons(savedTheme === 'dark');
+        } else if (systemPrefersDark) {
+            html.setAttribute('data-theme', 'dark');
+            updateIcons(true);
+        }
+
+        function updateIcons(isDark) {
+            if (isDark) {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        }
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcons(newTheme === 'dark');
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                const newTheme = e.matches ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+                updateIcons(e.matches);
+            }
+        });
+    }
+
+    // Initialize dark mode
+    initDarkMode();
+
     // Language detection and redirect (only on first visit)
     function detectAndRedirectLanguage() {
         // Only run on homepage
@@ -73,7 +124,10 @@
     document.querySelectorAll('a[target="_blank"]').forEach(link => {
         link.addEventListener('click', function() {
             // Placeholder for analytics tracking
-            console.log('External link clicked:', this.href);
+            // Only log in development
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.log('External link clicked:', this.href);
+            }
         });
     });
 
@@ -113,15 +167,20 @@
         document.body.classList.add('loaded');
     });
 
-    // Service Worker registration for PWA capabilities (optional)
+    // Service Worker registration for PWA capabilities
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-            // Uncomment when service worker is ready
-            // navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            //     console.log('ServiceWorker registered:', registration);
-            // }).catch(function(err) {
-            //     console.log('ServiceWorker registration failed:', err);
-            // });
+            navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                // Only log in development
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    console.log('ServiceWorker registered:', registration.scope);
+                }
+            }).catch(function(err) {
+                // Only log errors in development
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    console.log('ServiceWorker registration failed:', err);
+                }
+            });
         });
     }
 

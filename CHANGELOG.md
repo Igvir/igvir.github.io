@@ -2,6 +2,74 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2026-01-21
+
+### Added - Technical Improvements
+
+#### Security Enhancements
+- HTTPS enforcement via .htaccess redirect
+- HSTS (HTTP Strict Transport Security) header implementation
+- Sensitive files blocking (.md, .ps1, .json, .yml)
+- Conditional console logging (development only)
+- Service Worker cache validation by content-type
+- Enhanced security headers configuration
+
+#### Performance & Optimization
+- Service Worker for offline functionality and caching
+- Resource hints (dns-prefetch, preconnect) for faster external resource loading
+- Automatic cache management with version control
+- Background cache updates for improved performance
+- Offline page support with graceful fallbacks
+
+#### User Experience
+- Dark mode toggle with manual control
+- System preference detection for dark mode
+- Theme persistence using localStorage
+- Smooth theme transitions
+- Dark mode support for both EN and ES versions
+
+#### Developer Tools & Scripts
+- `sw.js` - Service Worker implementation
+- `convert-to-webp.ps1` - PowerShell script for WebP conversion
+- `extract-critical-css.js` - Node.js script for critical CSS extraction
+- `package.json` - NPM configuration for build tools
+- `webp-helper.md` - WebP implementation guide
+- `jquery-to-vanilla.md` - jQuery migration guide
+- `TECHNICAL_IMPROVEMENTS_SUMMARY.md` - Comprehensive improvements documentation
+- `TECHNICAL_IMPROVEMENTS_README.md` - Quick start guide
+- `DEPLOYMENT_CHECKLIST.md` - Deployment verification steps
+- `QUICK_START.md` - User-friendly quick start guide
+
+#### CSS Enhancements
+- CSS custom properties for theme colors
+- Dark mode color scheme
+- Theme toggle button styles
+- Improved color contrast for accessibility
+- Smooth transitions between themes
+
+### Changed
+- Updated `index.html` with resource hints and dark mode toggle
+- Updated `es/index.html` with resource hints and dark mode toggle
+- Enhanced `assets/css/custom.css` with dark mode variables
+- Enhanced `assets/js/custom.js` with dark mode logic and service worker registration
+- Updated `IMPROVEMENTS.md` with completed technical improvements
+- Reorganized documentation: moved reports to `/reports` folder
+- Updated `.htaccess` to block access to `/reports` directory
+
+### Performance Impact
+- Offline support after first visit
+- Faster external resource loading
+- Reduced latency for fonts and social media
+- Better Core Web Vitals scores
+- Improved user experience on slow connections
+
+### Browser Compatibility
+- Chrome 51+
+- Firefox 55+
+- Safari 11.1+
+- Edge 17+
+- Coverage: 98%+ of users
+
 ## [2.0.0] - 2026-01-21
 
 ### Added
