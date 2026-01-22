@@ -74,37 +74,21 @@ python -m http.server 8000
 
 ---
 
-## 📚 Documentation
+## 📚 Project Information
 
-### Getting Started
-- **[reports/QUICK_START.md](reports/QUICK_START.md)** - Quick start guide
-- **[reports/EXECUTIVE_SUMMARY.md](reports/EXECUTIVE_SUMMARY.md)** - Project overview
-- **[WEBP_CONVERSION_GUIDE.md](WEBP_CONVERSION_GUIDE.md)** - WebP conversion guide
+### About This Portfolio
+This is a professional portfolio website showcasing cloud architecture expertise, AWS certifications, and technical skills. The site is built with modern web technologies and follows best practices for performance, accessibility, and SEO.
 
-### Technical Documentation
-- **[reports/TECHNICAL_IMPROVEMENTS_SUMMARY.md](reports/TECHNICAL_IMPROVEMENTS_SUMMARY.md)** - What was implemented
-- **[reports/TECHNICAL_IMPROVEMENTS_README.md](reports/TECHNICAL_IMPROVEMENTS_README.md)** - Detailed guide
-- **[reports/IMPROVEMENTS_VISUAL_SUMMARY.md](reports/IMPROVEMENTS_VISUAL_SUMMARY.md)** - Visual overview
+### Key Highlights
+- Responsive design optimized for all devices
+- Bilingual support (English/Spanish)
+- Dark mode with system preference detection
+- Offline functionality via Service Worker
+- Optimized for Core Web Vitals
+- WCAG AA accessibility compliant
 
-### Security Documentation
-- **[reports/SECURITY_SUMMARY.md](reports/SECURITY_SUMMARY.md)** - Security overview
-- **[reports/SECURITY_AUDIT.md](reports/SECURITY_AUDIT.md)** - Complete security audit
-- **[reports/SECURITY_FIXES.md](reports/SECURITY_FIXES.md)** - Security implementation guide
-
-### Implementation Guides
-- **[WEBP_CONVERSION_GUIDE.md](WEBP_CONVERSION_GUIDE.md)** - Complete WebP conversion guide
-- **[webp-helper.md](webp-helper.md)** - WebP quick reference
-- **[jquery-to-vanilla.md](jquery-to-vanilla.md)** - jQuery migration
-- **[reports/DEPLOYMENT_CHECKLIST.md](reports/DEPLOYMENT_CHECKLIST.md)** - Deployment steps
-
-### Internationalization
-- **[INTERNATIONALIZATION.md](INTERNATIONALIZATION.md)** - i18n implementation
-- **[I18N_SUMMARY.md](I18N_SUMMARY.md)** - i18n summary
-- **[reports/QUICK_START_I18N.md](reports/QUICK_START_I18N.md)** - i18n quick start
-
-### Project History
-- **[CHANGELOG.md](CHANGELOG.md)** - Version history
-- **[IMPROVEMENTS.md](IMPROVEMENTS.md)** - All improvements
+### Version History
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history and updates.
 
 ---
 
@@ -114,7 +98,6 @@ python -m http.server 8000
 - HTML5
 - CSS3 (with custom properties)
 - JavaScript (ES6+)
-- jQuery (planned removal)
 
 ### Features
 - Service Worker (offline support)
@@ -122,12 +105,6 @@ python -m http.server 8000
 - Lazy loading images
 - Responsive design
 - Font Awesome icons
-
-### Tools & Scripts
-- PowerShell (image conversion)
-- Node.js (CSS optimization)
-- ImageMagick (WebP conversion)
-- Lighthouse (performance testing)
 
 ---
 
@@ -176,22 +153,23 @@ python -m http.server 8000
 ### Prerequisites
 - Modern web browser
 - Text editor or IDE
-- (Optional) Node.js for build tools
-- (Optional) ImageMagick for WebP conversion
+- Local web server (Python, Node.js, or similar)
 
-### Setup
+### Local Development
 ```bash
-# Install dependencies (optional)
-npm install
+# Clone the repository
+git clone https://github.com/igvir/igvir.github.io.git
 
-# Run local server
+# Navigate to directory
+cd igvir.github.io
+
+# Serve locally with Python
 python -m http.server 8000
 
-# Extract critical CSS (optional)
-npm run extract-critical
+# Or use Node.js http-server
+npx http-server -p 8000
 
-# Run Lighthouse
-npm run lighthouse-local
+# Visit: http://localhost:8000
 ```
 
 ### File Structure
@@ -210,7 +188,9 @@ igvir.github.io/
 │   └── webfonts/          # Font Awesome fonts
 ├── images/                # Images and badges
 ├── sw.js                  # Service Worker
-└── docs/                  # Documentation
+├── robots.txt             # SEO configuration
+├── sitemap.xml            # Site map
+└── _headers               # Security headers
 ```
 
 ---
@@ -218,13 +198,19 @@ igvir.github.io/
 ## 🚀 Deployment
 
 ### GitHub Pages
-Automatically deployed from `main` branch.
+This site is automatically deployed via GitHub Pages from the `main` branch.
 
-### Manual Deployment
-1. Review [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)
+### Custom Domain
+- Domain: www.igvir.com
+- HTTPS: Enforced
+- HSTS: Enabled
+
+### Deployment Process
+1. Make changes in development branch
 2. Test locally
-3. Commit and push changes
-4. Verify production site
+3. Merge to main branch
+4. GitHub Pages automatically deploys
+5. Verify at www.igvir.com
 
 ---
 
@@ -237,13 +223,12 @@ Automatically deployed from `main` branch.
 - [x] Internationalization (EN/ES)
 - [x] SEO optimization
 - [x] Accessibility improvements
-
-### In Progress 🔄
-- [ ] WebP image conversion
-- [ ] Critical CSS extraction
+- [x] Security headers
+- [x] Offline support
 
 ### Planned 📝
-- [ ] jQuery removal (vanilla JS)
+- [ ] Performance optimizations
+- [ ] Additional language support
 - [ ] Blog integration
 - [ ] Contact form
 - [ ] Analytics integration
@@ -297,12 +282,9 @@ Design template by [HTML5 UP](https://html5up.net) (CCA 3.0 License)
 
 - [View Live Site](https://www.igvir.com)
 - [Spanish Version](https://www.igvir.com/es/)
-- [Quick Start Guide](reports/QUICK_START.md)
-- [WebP Conversion Guide](WEBP_CONVERSION_GUIDE.md)
-- [Technical Summary](reports/TECHNICAL_IMPROVEMENTS_SUMMARY.md)
-- [Security Summary](reports/SECURITY_SUMMARY.md)
-- [Deployment Checklist](reports/DEPLOYMENT_CHECKLIST.md)
 - [Changelog](CHANGELOG.md)
+- [LinkedIn Profile](https://www.linkedin.com/in/igvir/)
+- [GitHub Profile](https://github.com/igvir)
 
 ---
 
