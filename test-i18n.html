@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i18n Testing Tool - Igvir Ramirez</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            padding: 2em;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #49bf9d;
+            margin-bottom: 0.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 2em;
+        }
+        
+        .section {
+            margin-bottom: 2em;
+            padding: 1.5em;
+            background: #f9f9f9;
+            border-radius: 4px;
+            border-left: 4px solid #49bf9d;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 1em;
+            font-size: 1.3em;
+        }
+        
+        .test-item {
+            margin-bottom: 1em;
+            padding: 1em;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .test-item h3 {
+            color: #49bf9d;
+            font-size: 1em;
+            margin-bottom: 0.5em;
+        }
+        
+        .test-link {
+            display: inline-block;
+            padding: 0.5em 1em;
+            background: #49bf9d;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 0.5em;
+            margin-bottom: 0.5em;
+            transition: background 0.3s;
+        }
+        
+        .test-link:hover {
+            background: #3aa886;
+        }
+        
+        .test-link.secondary {
+            background: #666;
+        }
+        
+        .test-link.secondary:hover {
+            background: #555;
+        }
+        
+        .info {
+            background: #e3f2fd;
+            padding: 1em;
+            border-radius: 4px;
+            margin-top: 1em;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .success {
+            background: #e8f5e9;
+            padding: 1em;
+            border-radius: 4px;
+            margin-top: 1em;
+            border-left: 4px solid #4caf50;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 0.5em 0;
+            padding-left: 1.5em;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #49bf9d;
+            font-size: 1.2em;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 0.3em 0.6em;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 0.5em;
+        }
+        
+        .status.ready {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .status.pending {
+            background: #ff9800;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 Internationalization Testing Tool</h1>
+        <p class="subtitle">Test and validate the multilingual implementation of igvir.com</p>
+        
+        <div class="section">
+            <h2>📄 Page Links</h2>
+            
+            <div class="test-item">
+                <h3>English Version</h3>
+                <a href="/" class="test-link" target="_blank">Homepage (EN)</a>
+                <a href="/#one" class="test-link secondary" target="_blank">About</a>
+                <a href="/#two" class="test-link secondary" target="_blank">Skills</a>
+                <a href="/#three" class="test-link secondary" target="_blank">Certifications</a>
+                <a href="/#four" class="test-link secondary" target="_blank">Experience</a>
+                <a href="/404.html" class="test-link secondary" target="_blank">404 Page</a>
+            </div>
+            
+            <div class="test-item">
+                <h3>Spanish Version</h3>
+                <a href="/es/" class="test-link" target="_blank">Homepage (ES)</a>
+                <a href="/es/#one" class="test-link secondary" target="_blank">Acerca de</a>
+                <a href="/es/#two" class="test-link secondary" target="_blank">Pasiones</a>
+                <a href="/es/#three" class="test-link secondary" target="_blank">Logros</a>
+                <a href="/es/#four" class="test-link secondary" target="_blank">Experiencia</a>
+                <a href="/es/404.html" class="test-link secondary" target="_blank">404 Page</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔍 SEO Validation Tools</h2>
+            
+            <div class="test-item">
+                <h3>Hreflang Validation</h3>
+                <a href="https://www.aleydasolis.com/english/international-seo-tools/hreflang-tags-generator/" class="test-link" target="_blank">Hreflang Validator</a>
+                <div class="info">
+                    <strong>How to test:</strong> Enter <code>https://www.igvir.com/</code> and verify hreflang tags are correct
+                </div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Open Graph Testing</h3>
+                <a href="https://www.opengraph.xyz/" class="test-link" target="_blank">Open Graph Debugger</a>
+                <div class="info">
+                    <strong>Test URLs:</strong><br>
+                    • <code>https://www.igvir.com/</code> (English)<br>
+                    • <code>https://www.igvir.com/es/</code> (Spanish)
+                </div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Twitter Card Validation</h3>
+                <a href="https://cards-dev.twitter.com/validator" class="test-link" target="_blank">Twitter Card Validator</a>
+                <div class="info">
+                    <strong>Expected result:</strong> Summary card with large image showing profile photo
+                </div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Structured Data Testing</h3>
+                <a href="https://search.google.com/test/rich-results" class="test-link" target="_blank">Rich Results Test</a>
+                <div class="info">
+                    <strong>Expected result:</strong> Valid Person schema with job title and organization
+                </div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Sitemap Validation</h3>
+                <a href="https://www.xml-sitemaps.com/validate-xml-sitemap.html" class="test-link" target="_blank">Sitemap Validator</a>
+                <div class="info">
+                    <strong>Sitemap URL:</strong> <code>https://www.igvir.com/sitemap.xml</code>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>✅ Testing Checklist</h2>
+            
+            <ul class="checklist">
+                <li>Language switcher visible on all pages</li>
+                <li>Language switcher highlights current language</li>
+                <li>Clicking EN/ES switches language correctly</li>
+                <li>All content is properly translated</li>
+                <li>Images load correctly in both versions</li>
+                <li>All links work in both languages</li>
+                <li>Navigation works in both languages</li>
+                <li>404 pages work in both languages</li>
+                <li>Hreflang tags present on both versions</li>
+                <li>Open Graph locale tags correct</li>
+                <li>HTML lang attribute correct (en/es)</li>
+                <li>Meta descriptions translated</li>
+                <li>Page titles translated</li>
+                <li>Alt text translated</li>
+                <li>ARIA labels translated</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🧪 Browser Language Testing</h2>
+            
+            <div class="test-item">
+                <h3>Test Automatic Language Detection</h3>
+                <div class="info">
+                    <strong>Steps:</strong><br>
+                    1. Open browser settings<br>
+                    2. Change language to Spanish (es)<br>
+                    3. Clear sessionStorage: <code>sessionStorage.clear()</code><br>
+                    4. Visit <code>https://www.igvir.com/</code><br>
+                    5. Should redirect to <code>/es/</code><br>
+                    <br>
+                    <strong>Chrome:</strong> Settings → Languages → Add Spanish → Move to top<br>
+                    <strong>Firefox:</strong> Settings → Language → Choose → Add Spanish<br>
+                    <strong>Safari:</strong> Preferences → General → Preferred Languages
+                </div>
+            </div>
+            
+            <div class="test-item">
+                <h3>Clear Session Storage</h3>
+                <div class="info">
+                    <strong>Console command:</strong><br>
+                    <code>sessionStorage.clear(); location.reload();</code>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 Implementation Status</h2>
+            
+            <div class="test-item">
+                <h3>Completed Features <span class="status ready">READY</span></h3>
+                <ul>
+                    <li>✅ Spanish translation complete</li>
+                    <li>✅ Language switcher implemented</li>
+                    <li>✅ Automatic language detection</li>
+                    <li>✅ Hreflang tags added</li>
+                    <li>✅ Open Graph locales configured</li>
+                    <li>✅ Multilingual sitemap created</li>
+                    <li>✅ Spanish 404 page created</li>
+                    <li>✅ Documentation complete</li>
+                </ul>
+            </div>
+            
+            <div class="test-item">
+                <h3>Post-Deployment Tasks <span class="status pending">PENDING</span></h3>
+                <ul>
+                    <li>⏳ Submit to Google Search Console</li>
+                    <li>⏳ Verify indexing of both versions</li>
+                    <li>⏳ Set up analytics tracking by language</li>
+                    <li>⏳ Monitor user behavior by language</li>
+                    <li>⏳ Gather user feedback</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📚 Documentation</h2>
+            
+            <div class="test-item">
+                <h3>Available Documentation</h3>
+                <a href="/INTERNATIONALIZATION.md" class="test-link" target="_blank">i18n Guide</a>
+                <a href="/I18N_SUMMARY.md" class="test-link" target="_blank">Implementation Summary</a>
+                <a href="/IMPROVEMENTS.md" class="test-link" target="_blank">All Improvements</a>
+                <a href="/DEPLOYMENT.md" class="test-link" target="_blank">Deployment Guide</a>
+                <a href="/CHANGELOG.md" class="test-link" target="_blank">Changelog</a>
+            </div>
+        </div>
+        
+        <div class="success">
+            <strong>✨ Implementation Complete!</strong><br>
+            The internationalization is fully implemented and ready for production. Use this page to test all features before deployment.
+        </div>
+    </div>
+    
+    <script>
+        // Display current browser language
+        const userLang = navigator.language || navigator.userLanguage;
+        console.log('Browser Language:', userLang);
+        console.log('Language Code:', userLang.split('-')[0]);
+        
+        // Check sessionStorage
+        console.log('Language Detection Status:', sessionStorage.getItem('languageDetected'));
+    </script>
+</body>
+</html>
