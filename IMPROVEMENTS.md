@@ -69,12 +69,12 @@
 - [ ] Add downloadable resume/CV
 
 ### Technical Improvements
-- [ ] Convert images to WebP format for better compression
-- [ ] Implement service worker for offline functionality
-- [ ] Add dark mode toggle (currently only respects system preference)
-- [ ] Replace jQuery with vanilla JavaScript for lighter bundle
-- [ ] Implement critical CSS inline
-- [ ] Add resource hints (dns-prefetch, preconnect)
+- ✅ Add resource hints (dns-prefetch, preconnect)
+- ✅ Implement service worker for offline functionality
+- ✅ Add dark mode toggle (respects system preference + manual toggle)
+- 🔄 Convert images to WebP format for better compression (script ready)
+- 📝 Replace jQuery with vanilla JavaScript for lighter bundle (guide ready)
+- 📝 Implement critical CSS inline (script ready)
 
 ### Internationalization
 - ✅ Add Spanish version of the site

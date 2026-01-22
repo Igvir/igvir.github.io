@@ -1,0 +1,27 @@
+{
+  "name": "igvir-portfolio",
+  "version": "2.0.0",
+  "description": "Igvir Ramirez - Cloud Solutions Architect Portfolio",
+  "private": true,
+  "scripts": {
+    "extract-critical": "node extract-critical-css.js",
+    "test": "echo \"No tests configured yet\"",
+    "lighthouse": "lighthouse https://www.igvir.com --view",
+    "lighthouse-local": "lighthouse http://localhost:8000 --view"
+  },
+  "keywords": [
+    "portfolio",
+    "cloud-architect",
+    "aws",
+    "personal-website"
+  ],
+  "author": "Igvir Ramirez Velasquez",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "critical": "^6.0.0",
+    "lighthouse": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
