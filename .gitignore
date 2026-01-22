@@ -13,6 +13,7 @@ test-i18n.html
 # Development scripts
 convert-to-webp.ps1
 extract-critical-css.js
+cleanup-git-history.ps1
 
 # Documentation and reports (internal use only)
 reports/
