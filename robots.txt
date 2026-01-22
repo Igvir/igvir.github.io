@@ -1,0 +1,13 @@
+# robots.txt for www.igvir.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.igvir.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow specific paths if needed
+# Disallow: /private/
