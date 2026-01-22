@@ -1,0 +1,40 @@
+# Development files
+node_modules/
+package-lock.json
+*.log
+npm-debug.log*
+package.json
+
+# Build and test files
+*.test.html
+test-*.html
+test-i18n.html
+
+# Development scripts
+convert-to-webp.ps1
+extract-critical-css.js
+
+# Documentation and reports (internal use only)
+reports/
+DEPLOYMENT.md
+DOCUMENTATION_INDEX.md
+WEBP_CONVERSION_GUIDE.md
+jquery-to-vanilla.md
+webp-helper.md
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
