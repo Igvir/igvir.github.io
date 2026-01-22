@@ -1,0 +1,43 @@
+# GitHub Pages Configuration for igvir.github.io
+
+# Site settings
+title: Igvir Ramirez - Cloud Solutions Architect
+description: Cloud Solutions Architect & Software Architect with 5 AWS certifications
+author: Igvir Ramirez Velasquez
+email: info@igvir.com
+url: https://www.igvir.com
+baseurl: ""
+
+# Social profiles
+social:
+  linkedin: https://www.linkedin.com/in/igvir/
+  twitter: https://twitter.com/igvir
+  github: https://github.com/igvir
+  medium: https://medium.com/@igvirr
+  blog: https://blog.igvir.com
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Exclude files from build
+exclude:
+  - README.md
+  - .git
+  - .gitignore
+  - node_modules
+  - vendor
+
+# Include files
+include:
+  - .htaccess
+  - _headers
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+lang: en_US
+timezone: America/Costa_Rica

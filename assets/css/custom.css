@@ -1,0 +1,200 @@
+/* Custom Styles for Igvir Ramirez Portfolio */
+
+/* Language Switcher */
+.language-switcher {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.lang-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+    padding: 0.3em 0.5em;
+}
+
+.lang-link:hover {
+    color: #49bf9d;
+}
+
+.lang-link.active {
+    color: #49bf9d;
+    border-bottom: 2px solid #49bf9d;
+}
+
+.lang-separator {
+    color: #ccc;
+    margin: 0 0.3em;
+}
+
+/* Responsive language switcher */
+@media screen and (max-width: 1280px) {
+    .language-switcher {
+        top: 0.5em;
+        right: 0.5em;
+        padding: 0.4em 0.8em;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .language-switcher {
+        top: 0.3em;
+        right: 0.3em;
+        padding: 0.3em 0.6em;
+    }
+    
+    .lang-link {
+        font-size: 0.8em;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a1a;
+        --text-color: #e0e0e0;
+        --link-color: #4a9eff;
+    }
+}
+
+/* Timeline Styles for Experience Section */
+.timeline {
+    position: relative;
+    padding: 2em 0;
+}
+
+.timeline article {
+    margin-bottom: 2.5em;
+    padding-left: 2em;
+    border-left: 3px solid #49bf9d;
+    position: relative;
+}
+
+.timeline article::before {
+    content: '';
+    position: absolute;
+    left: -0.6em;
+    top: 0;
+    width: 1em;
+    height: 1em;
+    background: #49bf9d;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.timeline article h4 {
+    margin-bottom: 0.5em;
+    color: #49bf9d;
+}
+
+.timeline article p strong {
+    color: #333;
+}
+
+.timeline article ul {
+    list-style: disc;
+    margin-left: 1.5em;
+    margin-top: 1em;
+}
+
+.timeline article ul li {
+    margin-bottom: 0.5em;
+}
+
+/* Improved Image Loading */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Accessibility: Skip to main content */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1em;
+    background-color: #49bf9d;
+    color: white;
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1em;
+}
+
+/* Performance: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Improved focus states for accessibility */
+a:focus,
+button:focus {
+    outline: 3px solid #49bf9d;
+    outline-offset: 2px;
+}
+
+/* Better print styles */
+@media print {
+    .icons,
+    nav,
+    #header footer {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+}
+
+/* Responsive improvements */
+@media screen and (max-width: 768px) {
+    .timeline article {
+        padding-left: 1em;
+    }
+    
+    .timeline article::before {
+        left: -0.5em;
+        width: 0.8em;
+        height: 0.8em;
+    }
+}
+
+/* Loading animation for images */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.image.loading {
+    background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage - English -->
+  <url>
+    <loc>https://www.igvir.com/</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/" />
+  </url>
+
+  <!-- Homepage - Spanish -->
+  <url>
+    <loc>https://www.igvir.com/es/</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/" />
+  </url>
+
+  <!-- About Section - English -->
+  <url>
+    <loc>https://www.igvir.com/#one</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/#one" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/#one" />
+  </url>
+
+  <!-- About Section - Spanish -->
+  <url>
+    <loc>https://www.igvir.com/es/#one</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/#one" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/#one" />
+  </url>
+
+  <!-- Things I Love Section - English -->
+  <url>
+    <loc>https://www.igvir.com/#two</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/#two" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/#two" />
+  </url>
+
+  <!-- Things I Love Section - Spanish -->
+  <url>
+    <loc>https://www.igvir.com/es/#two</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/#two" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/#two" />
+  </url>
+
+  <!-- Accomplishments Section - English -->
+  <url>
+    <loc>https://www.igvir.com/#three</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/#three" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/#three" />
+  </url>
+
+  <!-- Accomplishments Section - Spanish -->
+  <url>
+    <loc>https://www.igvir.com/es/#three</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/#three" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/#three" />
+  </url>
+
+  <!-- Experience Section - English -->
+  <url>
+    <loc>https://www.igvir.com/#four</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/#four" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/#four" />
+  </url>
+
+  <!-- Experience Section - Spanish -->
+  <url>
+    <loc>https://www.igvir.com/es/#four</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.igvir.com/#four" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.igvir.com/es/#four" />
+  </url>
+
+</urlset>
