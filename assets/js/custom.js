@@ -255,8 +255,18 @@
 
                 // Get reCAPTCHA token if available
                 let recaptchaSuccess = false;
-                if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
+                
+                // Wait for grecaptcha to be ready
+                if (typeof grecaptcha !== 'undefined') {
                     try {
+                        // Wait for grecaptcha.ready
+                        await new Promise((resolve) => {
+                            grecaptcha.ready(() => {
+                                console.log('grecaptcha is ready');
+                                resolve();
+                            });
+                        });
+
                         const recaptchaScript = document.querySelector('script[src*="recaptcha"]');
                         const siteKey = recaptchaScript ? recaptchaScript.src.match(/render=([^&]+)/)?.[1] : null;
                         
@@ -267,15 +277,32 @@
                                 formDataObj.append('g-recaptcha-response', token);
                                 recaptchaSuccess = true;
                                 console.log('reCAPTCHA token obtained successfully');
+                            } else {
+                                console.error('reCAPTCHA execute returned no token');
                             }
+                        } else {
+                            console.error('Could not find reCAPTCHA site key in script tag');
                         }
                     } catch (recaptchaError) {
-                        console.warn('reCAPTCHA error:', recaptchaError);
+                        console.error('reCAPTCHA error:', recaptchaError);
                     }
+                } else {
+                    console.error('grecaptcha is not defined - script may not have loaded');
                 }
 
                 if (!recaptchaSuccess) {
-                    console.warn('reCAPTCHA not available or failed - this may cause issues with Formspree');
+                    console.error('reCAPTCHA failed - form submission will likely be rejected by Formspree');
+                    
+                    // Show user-friendly error
+                    formStatus.style.display = 'block';
+                    formStatus.style.backgroundColor = '#fff3cd';
+                    formStatus.style.color = '#856404';
+                    formStatus.style.border = '1px solid #ffeaa7';
+                    formStatus.innerHTML = '⚠️ Security verification failed. Please refresh the page and try again, or email me directly at <a href="mailto:info@igvir.com" style="color: #856404; text-decoration: underline;">info@igvir.com</a>';
+                    
+                    submitButton.value = originalButtonText;
+                    submitButton.disabled = false;
+                    return; // Don't submit without reCAPTCHA
                 }
 
                 console.log('Submitting form data:', {
