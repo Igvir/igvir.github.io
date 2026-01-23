@@ -263,18 +263,15 @@
                         // Wait for grecaptcha.ready
                         await new Promise((resolve) => {
                             grecaptcha.ready(() => {
-                                console.log('grecaptcha is ready');
                                 resolve();
                             });
                         });
 
-                        console.log('Executing reCAPTCHA with site key:', RECAPTCHA_SITE_KEY);
                         const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
                         
                         if (token) {
                             formDataObj.append('g-recaptcha-response', token);
                             recaptchaSuccess = true;
-                            console.log('reCAPTCHA token obtained successfully:', token.substring(0, 20) + '...');
                         } else {
                             console.error('reCAPTCHA execute returned no token');
                         }
@@ -299,14 +296,6 @@
                     submitButton.disabled = false;
                     return; // Don't submit without reCAPTCHA
                 }
-
-                console.log('Submitting form data:', {
-                    name: formDataObj.get('name'),
-                    email: formDataObj.get('email'),
-                    subject: formDataObj.get('_subject'),
-                    message: formDataObj.get('message'),
-                    hasRecaptcha: recaptchaSuccess
-                });
 
                 // Submit to Formspree
                 const response = await fetch('https://formspree.io/f/mdaeazkb', {
