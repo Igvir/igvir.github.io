@@ -249,23 +249,42 @@
                 const formDataObj = new FormData();
                 formDataObj.append('name', document.getElementById('name').value);
                 formDataObj.append('email', document.getElementById('email').value);
-                formDataObj.append('subject', document.getElementById('subject').value);
+                formDataObj.append('_replyto', document.getElementById('email').value); // Formspree reply-to field
+                formDataObj.append('_subject', document.getElementById('subject').value); // Formspree subject field
                 formDataObj.append('message', document.getElementById('message').value);
 
                 // Get reCAPTCHA token if available
+                let recaptchaSuccess = false;
                 if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
                     try {
                         const recaptchaScript = document.querySelector('script[src*="recaptcha"]');
                         const siteKey = recaptchaScript ? recaptchaScript.src.match(/render=([^&]+)/)?.[1] : null;
                         
                         if (siteKey) {
+                            console.log('Executing reCAPTCHA with site key:', siteKey);
                             const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-                            formDataObj.append('g-recaptcha-response', token);
+                            if (token) {
+                                formDataObj.append('g-recaptcha-response', token);
+                                recaptchaSuccess = true;
+                                console.log('reCAPTCHA token obtained successfully');
+                            }
                         }
                     } catch (recaptchaError) {
                         console.warn('reCAPTCHA error:', recaptchaError);
                     }
                 }
+
+                if (!recaptchaSuccess) {
+                    console.warn('reCAPTCHA not available or failed - this may cause issues with Formspree');
+                }
+
+                console.log('Submitting form data:', {
+                    name: formDataObj.get('name'),
+                    email: formDataObj.get('email'),
+                    subject: formDataObj.get('_subject'),
+                    message: formDataObj.get('message'),
+                    hasRecaptcha: recaptchaSuccess
+                });
 
                 // Submit to Formspree
                 const response = await fetch('https://formspree.io/f/mdaeazkb', {
@@ -288,8 +307,12 @@
                     form.reset();
                 } else {
                     // Formspree error
-                    console.error('Formspree error:', data);
-                    throw new Error(data.error || 'Form submission failed');
+                    console.error('Formspree error response:', {
+                        status: response.status,
+                        statusText: response.statusText,
+                        data: data
+                    });
+                    throw new Error(data.error || data.errors?.[0]?.message || 'Form submission failed');
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
