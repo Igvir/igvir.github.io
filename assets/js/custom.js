@@ -254,25 +254,36 @@
                 formDataObj.append('message', document.getElementById('message').value);
 
                 // Get reCAPTCHA token if available
+                let recaptchaSuccess = false;
                 if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
                     try {
                         const recaptchaScript = document.querySelector('script[src*="recaptcha"]');
                         const siteKey = recaptchaScript ? recaptchaScript.src.match(/render=([^&]+)/)?.[1] : null;
                         
                         if (siteKey) {
+                            console.log('Executing reCAPTCHA with site key:', siteKey);
                             const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-                            formDataObj.append('g-recaptcha-response', token);
+                            if (token) {
+                                formDataObj.append('g-recaptcha-response', token);
+                                recaptchaSuccess = true;
+                                console.log('reCAPTCHA token obtained successfully');
+                            }
                         }
                     } catch (recaptchaError) {
                         console.warn('reCAPTCHA error:', recaptchaError);
                     }
                 }
 
+                if (!recaptchaSuccess) {
+                    console.warn('reCAPTCHA not available or failed - this may cause issues with Formspree');
+                }
+
                 console.log('Submitting form data:', {
                     name: formDataObj.get('name'),
                     email: formDataObj.get('email'),
                     subject: formDataObj.get('_subject'),
-                    message: formDataObj.get('message')
+                    message: formDataObj.get('message'),
+                    hasRecaptcha: recaptchaSuccess
                 });
 
                 // Submit to Formspree
