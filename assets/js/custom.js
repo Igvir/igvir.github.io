@@ -235,36 +235,36 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-
             // Show loading state
             const submitButton = form.querySelector('input[type="submit"]');
             const originalButtonText = submitButton.value;
             submitButton.value = 'Sending...';
             submitButton.disabled = true;
 
+            // Hide any previous status
+            formStatus.style.display = 'none';
+
             try {
-                // Get reCAPTCHA token
-                let recaptchaToken = null;
-                if (typeof grecaptcha !== 'undefined') {
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+
+                // Get reCAPTCHA token if available
+                if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
                     try {
-                        // Extract site key from script tag
                         const recaptchaScript = document.querySelector('script[src*="recaptcha"]');
                         const siteKey = recaptchaScript ? recaptchaScript.src.match(/render=([^&]+)/)?.[1] : null;
                         
-                        if (siteKey && siteKey !== '6LfYourSiteKeyHere' && siteKey !== '6LcOelMsAAAAAH1NdokNRxrbiH3kpqwcr_JxbGmU') {
-                            recaptchaToken = await grecaptcha.execute(siteKey, { action: 'submit' });
-                            formData['g-recaptcha-response'] = recaptchaToken;
+                        if (siteKey) {
+                            const token = await grecaptcha.execute(siteKey, { action: 'submit' });
+                            formData['g-recaptcha-response'] = token;
                         }
                     } catch (recaptchaError) {
                         console.warn('reCAPTCHA error:', recaptchaError);
-                        // Continue without reCAPTCHA if it fails
                     }
                 }
 
@@ -272,10 +272,13 @@
                 const response = await fetch('https://formspree.io/f/mdaeazkb', {
                     method: 'POST',
                     headers: {
+                        'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(formData)
                 });
+
+                const data = await response.json();
 
                 if (response.ok) {
                     // Success
@@ -286,28 +289,28 @@
                     formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
                     form.reset();
                 } else {
-                    throw new Error('Form submission failed');
+                    // Formspree error
+                    console.error('Formspree error:', data);
+                    throw new Error(data.error || 'Form submission failed');
                 }
             } catch (error) {
-                // Error - fallback to mailto
-                formStatus.style.display = 'block';
-                formStatus.style.backgroundColor = '#fff3cd';
-                formStatus.style.color = '#856404';
-                formStatus.style.border = '1px solid #ffeaa7';
-                formStatus.innerHTML = 'Unable to send via form. Please email me directly at <a href="mailto:info@igvir.com">info@igvir.com</a>';
+                console.error('Form submission error:', error);
                 
-                // Open mailto as fallback
-                const mailtoLink = `mailto:info@igvir.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-                window.location.href = mailtoLink;
+                // Show error message
+                formStatus.style.display = 'block';
+                formStatus.style.backgroundColor = '#f8d7da';
+                formStatus.style.color = '#721c24';
+                formStatus.style.border = '1px solid #f5c6cb';
+                formStatus.innerHTML = `❌ Unable to send message. Please email me directly at <a href="mailto:info@igvir.com" style="color: #721c24; text-decoration: underline;">info@igvir.com</a>`;
             } finally {
                 // Reset button
                 submitButton.value = originalButtonText;
                 submitButton.disabled = false;
 
-                // Hide status message after 5 seconds
+                // Hide status message after 8 seconds
                 setTimeout(() => {
                     formStatus.style.display = 'none';
-                }, 5000);
+                }, 8000);
             }
         });
     }
