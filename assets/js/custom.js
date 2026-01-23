@@ -255,6 +255,7 @@
 
                 // Get reCAPTCHA token if available
                 let recaptchaSuccess = false;
+                const RECAPTCHA_SITE_KEY = '6LcOelMsAAAAAH1NdokNRxrbiH3kpqwcr_JxbGmU';
                 
                 // Wait for grecaptcha to be ready
                 if (typeof grecaptcha !== 'undefined') {
@@ -267,21 +268,15 @@
                             });
                         });
 
-                        const recaptchaScript = document.querySelector('script[src*="recaptcha"]');
-                        const siteKey = recaptchaScript ? recaptchaScript.src.match(/render=([^&]+)/)?.[1] : null;
+                        console.log('Executing reCAPTCHA with site key:', RECAPTCHA_SITE_KEY);
+                        const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
                         
-                        if (siteKey) {
-                            console.log('Executing reCAPTCHA with site key:', siteKey);
-                            const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-                            if (token) {
-                                formDataObj.append('g-recaptcha-response', token);
-                                recaptchaSuccess = true;
-                                console.log('reCAPTCHA token obtained successfully');
-                            } else {
-                                console.error('reCAPTCHA execute returned no token');
-                            }
+                        if (token) {
+                            formDataObj.append('g-recaptcha-response', token);
+                            recaptchaSuccess = true;
+                            console.log('reCAPTCHA token obtained successfully:', token.substring(0, 20) + '...');
                         } else {
-                            console.error('Could not find reCAPTCHA site key in script tag');
+                            console.error('reCAPTCHA execute returned no token');
                         }
                     } catch (recaptchaError) {
                         console.error('reCAPTCHA error:', recaptchaError);
