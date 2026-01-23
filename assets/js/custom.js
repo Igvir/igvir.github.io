@@ -245,13 +245,12 @@
             formStatus.style.display = 'none';
 
             try {
-                // Get form data
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    subject: document.getElementById('subject').value,
-                    message: document.getElementById('message').value
-                };
+                // Prepare form data
+                const formDataObj = new FormData();
+                formDataObj.append('name', document.getElementById('name').value);
+                formDataObj.append('email', document.getElementById('email').value);
+                formDataObj.append('subject', document.getElementById('subject').value);
+                formDataObj.append('message', document.getElementById('message').value);
 
                 // Get reCAPTCHA token if available
                 if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
@@ -261,7 +260,7 @@
                         
                         if (siteKey) {
                             const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-                            formData['g-recaptcha-response'] = token;
+                            formDataObj.append('g-recaptcha-response', token);
                         }
                     } catch (recaptchaError) {
                         console.warn('reCAPTCHA error:', recaptchaError);
@@ -272,10 +271,9 @@
                 const response = await fetch('https://formspree.io/f/mdaeazkb', {
                     method: 'POST',
                     headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Accept': 'application/json'
                     },
-                    body: JSON.stringify(formData)
+                    body: formDataObj
                 });
 
                 const data = await response.json();
