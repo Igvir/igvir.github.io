@@ -238,6 +238,87 @@
     });
   }
 
+  // ─── Contact Form ───────────────────────────────────────────────────────
+  function initContactForm() {
+    var form = document.getElementById('contact-form');
+    var formStatus = document.getElementById('form-status');
+    if (!form) return;
+
+    var RECAPTCHA_SITE_KEY = '6LcOelMsAAAAAH1NdokNRxrbiH3kpqwcr_JxbGmU';
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalText = submitBtn.textContent;
+      submitBtn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
+      submitBtn.disabled = true;
+      formStatus.className = '';
+      formStatus.style.display = 'none';
+
+      // Get reCAPTCHA token then submit
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.ready(function() {
+          grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' }).then(function(token) {
+            submitForm(token);
+          }).catch(function() {
+            showFormError();
+            resetButton();
+          });
+        });
+      } else {
+        showFormError();
+        resetButton();
+      }
+
+      function submitForm(token) {
+        var formData = new FormData();
+        formData.append('name', form.querySelector('#name').value);
+        formData.append('email', form.querySelector('#email').value);
+        formData.append('_replyto', form.querySelector('#email').value);
+        formData.append('_subject', form.querySelector('#subject').value);
+        formData.append('message', form.querySelector('#message').value);
+        formData.append('g-recaptcha-response', token);
+
+        fetch('https://formspree.io/f/mdaeazkb', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        }).then(function(response) {
+          if (response.ok) {
+            formStatus.textContent = currentLang === 'es'
+              ? '✓ Mensaje enviado. Te responderé pronto.'
+              : '✓ Message sent successfully. I\'ll get back to you soon.';
+            formStatus.className = 'success';
+            formStatus.style.display = 'block';
+            form.reset();
+          } else {
+            showFormError();
+          }
+        }).catch(function() {
+          showFormError();
+        }).finally(function() {
+          resetButton();
+          setTimeout(function() { formStatus.style.display = 'none'; }, 8000);
+        });
+      }
+
+      function showFormError() {
+        var emailLink = '<a href="mailto:info@igvir.com">info@igvir.com</a>';
+        formStatus.innerHTML = currentLang === 'es'
+          ? '❌ No se pudo enviar. Escríbeme directamente a ' + emailLink
+          : '❌ Unable to send. Please email me directly at ' + emailLink;
+        formStatus.className = 'error';
+        formStatus.style.display = 'block';
+      }
+
+      function resetButton() {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
   // ─── Initialize ────────────────────────────────────────────────────────────
   function init() {
     initTheme();
@@ -246,6 +327,7 @@
     initSmoothScroll();
     renderBooks();
     initScrollAnimations();
+    initContactForm();
   }
 
   if (document.readyState === 'loading') {
