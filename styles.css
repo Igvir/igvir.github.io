@@ -651,6 +651,16 @@ p { color: var(--text-secondary); }
   flex-direction: column;
 }
 
+.subsection-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 32px;
+  margin-bottom: 8px;
+  padding-top: 24px;
+  border-top: 0.5px solid var(--border);
+}
+
 .writing-item {
   padding: 20px 0;
   border-bottom: 0.5px solid var(--border);
