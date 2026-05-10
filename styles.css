@@ -360,8 +360,8 @@ p { color: var(--text-secondary); }
 .btn-secondary:hover { border-color: var(--border-hover); }
 
 .hero-avatar {
-  width: 96px;
-  height: 96px;
+  width: 122px;
+  height: 122px;
   border-radius: 50%;
   background: var(--accent-muted);
   display: flex;
