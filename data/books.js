@@ -78,7 +78,7 @@ const books = [
     },
     cta: {
       primary: { en: "Leanpub →", es: "Leanpub →" },
-      secondary: { en: "Amazon", es: "Amazon" }
+      secondary: { en: "Amazon →", es: "Amazon →" }
     }
   },
 
@@ -125,7 +125,7 @@ const books = [
     },
     cta: {
       primary: { en: "Leanpub →", es: "Leanpub →" },
-      secondary: { en: "Amazon", es: "Amazon" }
+      secondary: { en: "Amazon →", es: "Amazon →" }
     }
   }
 
