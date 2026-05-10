@@ -1,291 +1,187 @@
-# Igvir Ramirez - Portfolio Website
+# Igvir Ramirez — Portfolio Website (v3)
 
-Cloud Solutions Architect & Software Architect portfolio showcasing AWS certifications, professional experience, and technical expertise.
+Cloud Solutions Architect & Software Architect portfolio. Modern one-page design with data-driven books section, dark mode, and bilingual support.
 
-🌐 **Live Site**: [www.igvir.com](https://www.igvir.com)  
-🇪🇸 **Spanish Version**: [www.igvir.com/es/](https://www.igvir.com/es/)
-
----
-
-## ✨ Latest Updates (v2.1.0)
-
-### 🚀 New Features
-- **Offline Support**: Works without internet after first visit
-- **Dark Mode**: Toggle between light and dark themes
-- **Faster Loading**: Optimized resource loading with hints
-- **Better Performance**: Improved Core Web Vitals
-
-### 🛡️ Security Enhancements
-- **HTTPS Enforcement**: All traffic secured
-- **HSTS Implementation**: Forced HTTPS for future visits
-- **Sensitive Files Protected**: Documentation and scripts blocked
-- **Secure Logging**: Production-safe console logging
-- **Cache Validation**: Content-type verification
-
-### 📊 Performance Improvements
-- Service Worker for caching and offline functionality
-- Resource hints (dns-prefetch, preconnect)
-- Dark mode with system preference detection
-- Enhanced user experience
+🌐 **Live**: [www.igvir.com](https://www.igvir.com)  
+🇪🇸 **Español**: [www.igvir.com/es/](https://www.igvir.com/es/)
 
 ---
 
-## 🎯 Features
+## Quick start
 
-### Core Features
-- ✅ Responsive design (mobile-first)
-- ✅ Multilingual (English/Spanish)
-- ✅ Dark mode toggle
-- ✅ Offline support
-- ✅ SEO optimized
-- ✅ Accessibility compliant (WCAG AA)
-- ✅ Fast loading (Lighthouse 90+)
-
-### Content Sections
-- About Me
-- Skills & Passions
-- AWS Certifications
-- Professional Experience
-- Social Media Links
-
----
-
-## 🚀 Quick Start
-
-### View the Site
-1. Visit [www.igvir.com](https://www.igvir.com)
-2. Try dark mode (sun/moon icon, top-left)
-3. Test offline (DevTools > Application > Offline)
-
-### Local Development
 ```bash
-# Clone the repository
+# Clone
 git clone https://github.com/igvir/igvir.github.io.git
-
-# Navigate to directory
 cd igvir.github.io
 
-# Serve locally (Python)
+# Serve locally
 python -m http.server 8000
-
-# Or use any static server
-# Visit: http://localhost:8000
-```
-
----
-
-## 📚 Project Information
-
-### About This Portfolio
-This is a professional portfolio website showcasing cloud architecture expertise, AWS certifications, and technical skills. The site is built with modern web technologies and follows best practices for performance, accessibility, and SEO.
-
-### Key Highlights
-- Responsive design optimized for all devices
-- Bilingual support (English/Spanish)
-- Dark mode with system preference detection
-- Offline functionality via Service Worker
-- Optimized for Core Web Vitals
-- WCAG AA accessibility compliant
-
-### Version History
-See [CHANGELOG.md](CHANGELOG.md) for detailed version history and updates.
-
----
-
-## 🛠️ Technology Stack
-
-### Frontend
-- HTML5
-- CSS3 (with custom properties)
-- JavaScript (ES6+)
-
-### Features
-- Service Worker (offline support)
-- Dark mode (CSS variables)
-- Lazy loading images
-- Responsive design
-- Font Awesome icons
-
----
-
-## 📊 Performance
-
-### Current Metrics
-- **Lighthouse Score**: 90+
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Time to Interactive**: < 3.5s
-- **Offline Support**: ✅ Yes
-
-### Browser Support
-- Chrome 51+ ✅
-- Firefox 55+ ✅
-- Safari 11.1+ ✅
-- Edge 17+ ✅
-- Coverage: 98%+ of users
-
----
-
-## 🎨 Features in Detail
-
-### Service Worker
-- Caches critical assets
-- Works offline after first visit
-- Background updates
-- Version management
-
-### Dark Mode
-- Manual toggle button
-- Respects system preference
-- Persistent user choice
-- Smooth transitions
-
-### Internationalization
-- English (default)
-- Spanish (/es/)
-- Automatic language detection
-- SEO optimized (hreflang tags)
-
----
-
-## 🔧 Development
-
-### Prerequisites
-- Modern web browser
-- Text editor or IDE
-- Local web server (Python, Node.js, or similar)
-
-### Local Development
-```bash
-# Clone the repository
-git clone https://github.com/igvir/igvir.github.io.git
-
-# Navigate to directory
-cd igvir.github.io
-
-# Serve locally with Python
-python -m http.server 8000
-
-# Or use Node.js http-server
+# or
 npx http-server -p 8000
 
-# Visit: http://localhost:8000
+# Open http://localhost:8000
 ```
 
-### File Structure
+No build step required. Pure HTML/CSS/JS.
+
+---
+
+## Project structure
+
 ```
 igvir.github.io/
-├── index.html              # Main page (English)
-├── es/
-│   └── index.html         # Spanish version
-├── assets/
-│   ├── css/
-│   │   ├── main.css       # Main styles
-│   │   └── custom.css     # Custom styles
-│   ├── js/
-│   │   ├── main.js        # Main JavaScript
-│   │   └── custom.js      # Custom JavaScript
-│   └── webfonts/          # Font Awesome fonts
-├── images/                # Images and badges
-├── sw.js                  # Service Worker
-├── robots.txt             # SEO configuration
-├── sitemap.xml            # Site map
-└── _headers               # Security headers
+├── index.html          # English version
+├── es/index.html       # Spanish version
+├── styles.css          # All styles (design system + components)
+├── script.js           # Theme, language, animations, books rendering
+├── data/
+│   └── books.js        # Books data array (add new books here)
+├── images/
+│   ├── avatar.jpg
+│   ├── og-image.png
+│   └── books/          # Book covers ({id}-{lang}.png)
+├── robots.txt
+├── sitemap.xml
+├── site.webmanifest
+└── CNAME
 ```
 
 ---
 
-## 🚀 Deployment
+## How to add a new book
 
-### GitHub Pages
-This site is automatically deployed via GitHub Pages from the `main` branch.
+### Step 1: Add cover images
 
-### Custom Domain
-- Domain: www.igvir.com
-- HTTPS: Enforced
-- HSTS: Enabled
+Place cover images in `images/books/` following the naming convention:
 
-### Deployment Process
-1. Make changes in development branch
-2. Test locally
-3. Merge to main branch
-4. GitHub Pages automatically deploys
-5. Verify at www.igvir.com
+```
+images/books/{book-id}-{lang}.png
+```
+
+Examples:
+- `images/books/new-book-en.png`
+- `images/books/new-book-es.png`
+
+If the book only has one language version, use the same file for both:
+```
+images/books/new-book-es.png  (and point both cover.en and cover.es to this file)
+```
+
+### Step 2: Add the book object to `data/books.js`
+
+Open `data/books.js` and add a new object to the `books` array:
+
+```js
+{
+  id: "new-book",
+  status: "published",        // "published" | "upcoming" | "draft"
+  featured: false,            // true = appears first
+  publishedYear: 2026,
+  badge: { en: "NEW", es: "NUEVO" },
+  title: {
+    en: "Your Book Title",
+    es: "Título de Tu Libro"
+  },
+  subtitle: {
+    en: "A subtitle for the book",
+    es: "Un subtítulo para el libro"
+  },
+  description: {
+    en: "Short description of the book.",
+    es: "Descripción corta del libro."
+  },
+  cover: {
+    en: "/images/books/new-book-en.png",
+    es: "/images/books/new-book-es.png"
+  },
+  coverAlt: {
+    en: "Book cover alt text",
+    es: "Texto alternativo de la portada"
+  },
+  theme: {
+    gradientFrom: "#1a1a2e",      // Dark color from the cover
+    gradientTo: "#16213e",        // Slightly lighter variant
+    accentColor: "#e94560",       // Contrasting accent
+    badgeBg: "rgba(233,69,96,0.18)",
+    badgeColor: "#ff6b81",
+    primaryCtaBg: "#e94560",
+    primaryCtaText: "#ffffff"
+  },
+  links: {
+    buy: "https://leanpub.com/new-book",
+    preview: null                 // or a preview URL
+  },
+  cta: {
+    primary: { en: "Buy →", es: "Comprar →" },
+    secondary: { en: "Preview", es: "Vista previa" }
+  }
+}
+```
+
+### Step 3: Choose theme colors
+
+Pick 2 dominant colors from the book cover for `gradientFrom` and `gradientTo`, then choose a contrasting accent for CTAs and badges. Use a tool like [Coolors](https://coolors.co/) or an eyedropper on the cover image.
+
+### Step 4: Test locally
+
+```bash
+python -m http.server 8000
+```
+
+Verify:
+- Book card renders correctly in both EN and ES
+- Cover image loads
+- CTA links work
+- Stats row updates automatically
+- Grid layout adjusts (1 col for 1 book, 2 cols for 2, etc.)
+
+### Step 5: Upcoming books
+
+If the book isn't published yet, set `status: "upcoming"`. To show upcoming books on the site, change `showUpcoming` to `true` in `script.js`:
+
+```js
+const showUpcoming = true;
+```
+
+Upcoming books display with a "Notify me" / "Avisarme" CTA instead of "Buy".
 
 ---
 
-## 📈 Roadmap
+## Deployment
 
-### Completed ✅
-- [x] Service Worker implementation
-- [x] Dark mode toggle
-- [x] Resource hints
-- [x] Internationalization (EN/ES)
-- [x] SEO optimization
-- [x] Accessibility improvements
-- [x] Security headers
-- [x] Offline support
+Recommended: **GitHub Pages** (current setup).
 
-### Planned 📝
-- [ ] Performance optimizations
-- [ ] Additional language support
-- [ ] Blog integration
-- [ ] Contact form
-- [ ] Analytics integration
+1. Push changes to `main` branch
+2. GitHub Pages auto-deploys
+3. Custom domain configured via `CNAME` file
+
+Alternative options:
+- **Cloudflare Pages**: Connect repo, set build command to empty, output directory to `/`
+- **Netlify**: Same as above, drag-and-drop or connect repo
 
 ---
 
-## 🤝 Contributing
+## Tech stack
 
-This is a personal portfolio website. However, if you find bugs or have suggestions:
-
-1. Open an issue
-2. Describe the problem/suggestion
-3. Include screenshots if applicable
-
----
-
-## 📄 License
-
-© 2026 Igvir Ramirez. All rights reserved.
-
-Design template by [HTML5 UP](https://html5up.net) (CCA 3.0 License)
+- HTML5 + CSS3 + vanilla JavaScript
+- Inter + JetBrains Mono (Google Fonts)
+- Tabler Icons (CDN)
+- No frameworks, no build tools, no dependencies
 
 ---
 
-## 📞 Contact
+## Features
 
-- **Website**: [www.igvir.com](https://www.igvir.com)
-- **LinkedIn**: [linkedin.com/in/igvir](https://www.linkedin.com/in/igvir/)
-- **GitHub**: [github.com/igvir](https://github.com/igvir)
-- **Email**: info@igvir.com
-
----
-
-## 🙏 Acknowledgments
-
-- HTML5 UP for the base template
-- Font Awesome for icons
-- Google Fonts for typography
-- AWS for certifications
-- GBM Corp for professional opportunities
+- Responsive (mobile-first, breakpoints at 640/768/1024px)
+- Dark/light mode with system preference detection
+- Bilingual EN/ES with URL-based routing
+- Data-driven books section (edit `data/books.js` only)
+- Scroll animations (IntersectionObserver)
+- 3D mouse tracking on book covers
+- WCAG 2.1 AA accessible
+- SEO optimized (OG, Twitter Cards, JSON-LD, hreflang)
+- Lighthouse 95+
 
 ---
 
-**Version**: 2.1.0  
-**Last Updated**: January 21, 2026  
-**Status**: ✅ Production Ready
-
----
-
-## 📖 Quick Links
-
-- [View Live Site](https://www.igvir.com)
-- [Spanish Version](https://www.igvir.com/es/)
-- [Changelog](CHANGELOG.md)
-- [LinkedIn Profile](https://www.linkedin.com/in/igvir/)
-- [GitHub Profile](https://github.com/igvir)
-
----
-
-Made with ❤️ by Igvir Ramirez
+© 2026 Igvir Ramírez. All rights reserved.
