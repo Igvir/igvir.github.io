@@ -140,10 +140,18 @@
     var loadingAttr = isFirst ? 'eager' : 'lazy';
 
     var secondaryCta = '';
-    var previewLink = book.links.preview;
-    if (previewLink && typeof previewLink === 'object') previewLink = previewLink[lang] || previewLink.en;
-    if (previewLink && book.cta.secondary) {
-      secondaryCta = '<a href="' + previewLink + '" target="_blank" rel="noopener noreferrer" class="book-cta-secondary">' + book.cta.secondary[lang] + '</a>';
+    var amazonLink = book.links.amazon;
+    if (amazonLink && typeof amazonLink === 'object') amazonLink = amazonLink[lang] || amazonLink.en;
+    if (typeof amazonLink === 'string' && amazonLink) {
+      // Use amazon as secondary CTA
+      secondaryCta = '<a href="' + amazonLink + '" target="_blank" rel="noopener noreferrer" class="book-cta-secondary">' + book.cta.secondary[lang] + '</a>';
+    } else {
+      // Fallback to preview link
+      var previewLink = book.links.preview;
+      if (previewLink && typeof previewLink === 'object') previewLink = previewLink[lang] || previewLink.en;
+      if (previewLink && book.cta.secondary) {
+        secondaryCta = '<a href="' + previewLink + '" target="_blank" rel="noopener noreferrer" class="book-cta-secondary">' + book.cta.secondary[lang] + '</a>';
+      }
     }
 
     var buyLink = book.links.buy;

@@ -72,12 +72,13 @@ const books = [
       primaryCtaText: "#2d1561"
     },
     links: {
-      buy: { en: "https://leanpub.com/kiro", es: "https://leanpub.com/kiro" },  // TODO: confirmar URL real
+      buy: { en: "https://leanpub.com/kiro", es: "https://leanpub.com/kiro" },
+      amazon: { en: "https://www.amazon.com/dp/B0GQYGPRJY", es: "https://www.amazon.com/dp/B0GQYGPRJY" },
       preview: null
     },
     cta: {
-      primary: { en: "Buy →", es: "Comprar →" },
-      secondary: { en: "Preview", es: "Vista previa" }
+      primary: { en: "Leanpub →", es: "Leanpub →" },
+      secondary: { en: "Amazon", es: "Amazon" }
     }
   },
 
@@ -119,10 +120,11 @@ const books = [
     },
     links: {
       buy: { en: "https://leanpub.com/ai-tools", es: "https://leanpub.com/ia-tareas-cotidianas" },
-      preview: { en: null, es: null }
+      amazon: { en: "https://www.amazon.com/dp/B0GKFM3JVC", es: "https://www.amazon.com/dp/B0GPX2R1PK" },
+      preview: null
     },
     cta: {
-      primary: { en: "Buy →", es: "Comprar →" },
+      primary: { en: "Leanpub →", es: "Leanpub →" },
       secondary: { en: "Amazon", es: "Amazon" }
     }
   }
