@@ -327,6 +327,13 @@
     });
   }
 
+  // ─── Service Worker Registration ────────────────────────────────────────
+  function initServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(function() {});
+    }
+  }
+
   // ─── Initialize ────────────────────────────────────────────────────────────
   function init() {
     initTheme();
@@ -336,6 +343,7 @@
     renderBooks();
     initScrollAnimations();
     initContactForm();
+    initServiceWorker();
   }
 
   if (document.readyState === 'loading') {
