@@ -173,7 +173,10 @@
     var langsEl = document.querySelector('[data-books-langs]');
 
     if (countEl) {
-      countEl.textContent = published.length + (published.length === 1 ? ' book' : ' books');
+      var bookWord = currentLang === 'es'
+        ? (published.length === 1 ? ' libro' : ' libros')
+        : (published.length === 1 ? ' book' : ' books');
+      countEl.textContent = published.length + bookWord;
     }
     if (langsEl) {
       var langs = [];
