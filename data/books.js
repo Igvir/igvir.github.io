@@ -88,7 +88,7 @@ const books = [
     status: "published",
     featured: false,
     publishedYear: 2025,
-    badge: { en: "BILINGUAL", es: "Inglés y Español" },
+    badge: { en: "English and Spanish versions", es: "En Inglés y en Español" },
     title: {
       en: "AI Tools for Everyday Tasks",
       es: "IA para Tareas Cotidianas"
