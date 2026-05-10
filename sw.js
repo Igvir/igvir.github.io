@@ -3,7 +3,7 @@
  * Provides offline functionality and caching
  */
 
-const CACHE_VERSION = 'v1.1.0';
+const CACHE_VERSION = 'v3.0.0';
 const CACHE_NAME = `igvir-portfolio-${CACHE_VERSION}`;
 
 // Assets to cache on install
@@ -12,15 +12,10 @@ const STATIC_ASSETS = [
   '/index.html',
   '/es/',
   '/es/index.html',
-  '/assets/css/main.css',
-  '/assets/css/custom.css',
-  '/assets/css/fontawesome-all.min.css',
-  '/assets/js/browser.min.js',
-  '/assets/js/breakpoints.min.js',
-  '/assets/js/main-vanilla.js',
-  '/assets/js/custom.js',
+  '/styles.css',
+  '/script.js',
+  '/data/books.js',
   '/images/avatar.jpg',
-  '/images/banner5-white-small.png',
   '/favicon-32x32.png',
   '/favicon-16x16.png',
   '/site.webmanifest'
@@ -30,10 +25,7 @@ const STATIC_ASSETS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Service Worker: Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
-      })
+      .then((cache) => cache.addAll(STATIC_ASSETS))
       .then(() => self.skipWaiting())
   );
 });
@@ -53,40 +45,35 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - stale-while-revalidate strategy
 self.addEventListener('fetch', (event) => {
-  // Skip non-GET requests
   if (event.request.method !== 'GET') return;
-
-  // Skip external requests
   if (!event.request.url.startsWith(self.location.origin)) return;
 
   event.respondWith(
     caches.match(event.request)
       .then((cachedResponse) => {
         if (cachedResponse) {
-          // Return cached version and update cache in background
+          // Return cached version and update in background
           event.waitUntil(
             fetch(event.request)
               .then((response) => {
                 if (response && response.status === 200) {
-                  const responseClone = response.clone();
+                  const clone = response.clone();
                   caches.open(CACHE_NAME)
-                    .then((cache) => cache.put(event.request, responseClone));
+                    .then((cache) => cache.put(event.request, clone));
                 }
               })
-              .catch(() => {}) // Ignore network errors
+              .catch(() => {})
           );
           return cachedResponse;
         }
 
-        // Not in cache, fetch from network
+        // Not cached — fetch from network
         return fetch(event.request)
           .then((response) => {
-            // Cache successful responses with validation
             if (response && response.status === 200) {
               const contentType = response.headers.get('content-type');
-              // Only cache expected content types
               if (contentType && (
                 contentType.includes('text/html') ||
                 contentType.includes('text/css') ||
@@ -94,15 +81,15 @@ self.addEventListener('fetch', (event) => {
                 contentType.includes('image/') ||
                 contentType.includes('font/')
               )) {
-                const responseClone = response.clone();
+                const clone = response.clone();
                 caches.open(CACHE_NAME)
-                  .then((cache) => cache.put(event.request, responseClone));
+                  .then((cache) => cache.put(event.request, clone));
               }
             }
             return response;
           })
           .catch(() => {
-            // Return offline page for navigation requests
+            // Offline fallback for navigation
             if (event.request.mode === 'navigate') {
               return caches.match('/index.html');
             }
