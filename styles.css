@@ -410,6 +410,12 @@ p { color: var(--text-secondary); }
   margin-top: 4px;
 }
 
+.stat-link {
+  text-decoration: none;
+  transition: opacity 200ms;
+}
+.stat-link:hover { opacity: 0.7; }
+
 /* ─── Section common ────────────────────────────────────────────────────── */
 .section {
   padding: 64px 0;
