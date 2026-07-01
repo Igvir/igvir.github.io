@@ -394,7 +394,7 @@ p { color: var(--text-secondary); }
 }
 
 @media (min-width: 768px) {
-  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .stats-grid { grid-template-columns: repeat(5, 1fr); }
 }
 
 .stat-item { text-align: center; }
