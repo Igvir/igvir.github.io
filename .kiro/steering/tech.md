@@ -3,17 +3,20 @@
 ## Tech Stack
 
 - **HTML5** — semantic markup, no templating engine or static site generator
-- **CSS3** — custom properties (CSS variables) for theming, SASS source in `assets/sass/`
-- **JavaScript (ES6+)** — vanilla JS, no framework. jQuery is present but the main logic uses `main-vanilla.js`
-- **Font Awesome** — icon library (self-hosted webfonts)
-- **Google Fonts** — Lato, Source Code Pro (loaded externally)
+- **CSS3** — custom properties (CSS variables) for theming; the live site is styled by `/styles.css`
+- **JavaScript (ES6+)** — vanilla JS, no framework. The live site logic is in `/script.js`; book data is in `/data/books.js`
+- **Tabler Icons** — icon library, loaded as a webfont from jsDelivr CDN (version-pinned with SRI)
+- **Google Fonts** — Inter, JetBrains Mono (loaded externally)
 - **Service Worker** — offline caching and PWA support (`sw.js`)
 - **reCAPTCHA v3** — spam protection on contact form
 - **Formspree** — form submission backend (no server-side code)
 
-## Design Template
+> Note: the `assets/` tree (HTML5 UP template `main.css`, jQuery, `main-vanilla.js`, Font Awesome, SASS) is legacy from an earlier version and is not loaded by the current `index.html`. Do not add new work there.
 
-Based on HTML5 UP template (CCA 3.0 License). Core template styles are in `assets/css/main.css`; project customizations go in `assets/css/custom.css`.
+## Third-Party Dependencies & CDN Policy
+
+- Pin external CDN resources to an explicit version (never `@latest`) and add Subresource Integrity (`integrity` + `crossorigin`).
+- Keep the Content Security Policy in `_headers` and `.htaccess` in sync with the origins the site actually loads (currently: Google Fonts, jsDelivr, Google reCAPTCHA, Formspree).
 
 ## Build & Development
 

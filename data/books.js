@@ -72,7 +72,7 @@ const books = [
       primaryCtaText: "#2d1561"
     },
     links: {
-      buy: { en: "https://leanpub.com/kiro", es: "https://leanpub.com/kiro" },
+      buy: { en: "https://leanpub.com/libro-kirodev", es: "https://leanpub.com/libro-kirodev" },
       amazon: { en: "https://www.amazon.com/dp/B0GQYGPRJY", es: "https://www.amazon.com/dp/B0GQYGPRJY" },
       preview: null
     },
